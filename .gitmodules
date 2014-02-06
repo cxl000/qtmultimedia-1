@@ -1,0 +1,3 @@
+[submodule "qtmultimedia"]
+	path = qtmultimedia
+	url = git://qt.gitorious.org/qt/qtmultimedia
