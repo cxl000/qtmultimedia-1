@@ -1,4 +1,4 @@
-Name:       qt5-qtmultimedia
+Name:       qt5-qtmultimedia-g1
 Summary:    Qt Multimedia module
 Version:    5.2.1
 Release:    1%{?dist}
@@ -6,6 +6,7 @@ Group:      Qt/Qt
 License:    LGPLv2.1 with exception or GPLv3
 URL:        http://qt.nokia.com
 Source0:    %{name}-%{version}.tar.bz2
+Patch0:     0001-gstreamer-config.test.patch
 BuildRequires:  qt5-qtcore-devel
 BuildRequires:  qt5-qtgui-devel
 BuildRequires:  qt5-qtwidgets-devel
@@ -18,14 +19,14 @@ BuildRequires:  pkgconfig(alsa)
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libpulse-mainloop-glib)
-BuildRequires:  pkgconfig(gstreamer-0.10)
-BuildRequires:  pkgconfig(gstreamer-base-0.10)
-BuildRequires:  pkgconfig(gstreamer-interfaces-0.10)
-BuildRequires:  pkgconfig(gstreamer-audio-0.10)
-BuildRequires:  pkgconfig(gstreamer-video-0.10)
-BuildRequires:  pkgconfig(gstreamer-pbutils-0.10)
-BuildRequires:  pkgconfig(gstreamer-app-0.10)
-BuildRequires:  pkgconfig(gstreamer-plugins-bad-free-0.10)
+BuildRequires:  pkgconfig(gstreamer-1.0)
+BuildRequires:  pkgconfig(gstreamer-base-1.0)
+#BuildRequires:  pkgconfig(gstreamer-interfaces-1.0)
+BuildRequires:  pkgconfig(gstreamer-audio-1.0)
+BuildRequires:  pkgconfig(gstreamer-video-1.0)
+BuildRequires:  pkgconfig(gstreamer-pbutils-1.0)
+BuildRequires:  pkgconfig(gstreamer-app-1.0)
+BuildRequires:  pkgconfig(gstreamer-plugins-bad-free-1.0)
 BuildRequires:  pkgconfig(libresourceqt5)
 
 %description
@@ -130,6 +131,7 @@ This package contains the pulse audio sound effect support.
 
 %prep
 %setup -q -n %{name}-%{version}/qtmultimedia
+%patch0 -p1
 
 %build
 export QTDIR=/usr/share/qt5
@@ -217,11 +219,11 @@ rm -rf %{buildroot}/%{_includedir}/qt5/Qt
 
 %files plugin-mediaservice-gstcamerabin
 %defattr(-,root,root,-)
-%{_libdir}/qt5/plugins/mediaservice/libgstcamerabin.so
+#%{_libdir}/qt5/plugins/mediaservice/libgstcamerabin.so
 
 %files plugin-mediaservice-gstmediacapture
 %defattr(-,root,root,-)
-%{_libdir}/qt5/plugins/mediaservice/libgstmediacapture.so
+#%{_libdir}/qt5/plugins/mediaservice/libgstmediacapture.so
 
 %files plugin-mediaservice-gstmediaplayer
 %defattr(-,root,root,-)
