@@ -19,14 +19,9 @@ BuildRequires:  pkgconfig(alsa)
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libpulse-mainloop-glib)
-BuildRequires:  pkgconfig(gstreamer-1.0)
-BuildRequires:  pkgconfig(gstreamer-base-1.0)
-#BuildRequires:  pkgconfig(gstreamer-interfaces-1.0)
-BuildRequires:  pkgconfig(gstreamer-audio-1.0)
-BuildRequires:  pkgconfig(gstreamer-video-1.0)
-BuildRequires:  pkgconfig(gstreamer-pbutils-1.0)
-BuildRequires:  pkgconfig(gstreamer-app-1.0)
-BuildRequires:  pkgconfig(gstreamer-plugins-bad-free-1.0)
+BuildRequires:  gstreamer-devel
+BuildRequires:  gst-plugins-base-devel
+BuildRequires:  gst-plugins-bad-free-devel
 BuildRequires:  pkgconfig(libresourceqt5)
 
 %description
